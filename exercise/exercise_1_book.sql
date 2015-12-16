@@ -1,0 +1,17 @@
+
+
+CREATE TABLE book 
+(
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	title VARCHAR(128) NOT NULL,
+	author VARCHAR(128) NOT NULL,
+	publisher VARCHAR(64),
+	year INT DEFAULT 2015,
+	ISBN CHAR(13),
+	cost INT DEFAULT 0
+);
+
+LOAD DATA LOCAL INFILE '/users/katekyuwon/desktop/NEXT-book/book.csv' 
+INTO TABLE book FIELDS TERMINATED BY "," ENCLOSED  BY'"' IGNORE 1 lines;
+
+SELECT * FROM book;
